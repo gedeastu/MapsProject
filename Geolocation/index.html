@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+</head>
+<body>
+<div id="map">
+</div>
+<div id="acc"></div>
+<div id="lat"></div>
+<div id="long"></div>
+<div id="alt"></div>
+<div id="head"></div>
+<div id="spd"></div>
+<script>
+let reqcount = 0;
+navigator.geolocation.watchPosition(successCallback,errorCallback);
+function successCallback(position){
+    const {accuracy,latitude,longitude,altitude,heading,speed} = position.coords;
+    acc.innerHTML = 'Accuracy : ' + accuracy + '<br>';
+    lat.innerHTML = 'Latitude : ' + latitude + '<br>';
+    long.innerHTML = 'Longitude : ' + longitude + '<br>';
+    alt.innerHTML = 'Altitude : ' + altitude + '<br>';
+    head.innerHTML = 'Heading : ' + heading + '<br>';
+    spd.innerHTML = 'Speed : ' + speed + '<br>';
+    map.innerHTML = '<iframe width="700" height="300" src="https://maps.google.com/maps?q='+latitude+','+longitude+',&amp;z=100&amp;output=embed"></iframe>'
+}
+function errorCallback (error){
+
+}
+//let options = {
+    //enableHighAccuracy : false,
+    //timeout : 5000,
+    //maximumAge : 0
+//}
+//navigator.geolocation.getCurrentPosition(position => {
+    //const {latitude,longitude} = position.coords;
+    //console.log(position);
+    //map.innerHTML = '<iframe width="700" height="300" src="https://maps.google.com/maps?q='+latitude+','+longitude+',&amp;z=100&amp;output=embed"></iframe>'
+//});
+</script>
+</body>
+</html>
