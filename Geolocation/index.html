@@ -5,18 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Map</title>
 </head>
-<body>
+<body style="width: 100vw; height: 100vh; display: flex; flex-direction: column; justify-self: center; justify-content: center; align-items: center;">
 <div id="map">
 </div>
+<div>
 <div id="acc"></div>
 <div id="lat"></div>
 <div id="long"></div>
 <div id="alt"></div>
 <div id="head"></div>
 <div id="spd"></div>
-<div></div>
+</div>
 <script>
-let reqcount = 0;
+//let reqcount = 0;
 navigator.geolocation.watchPosition(successCallback,errorCallback);
 function successCallback(position){
     const {accuracy,latitude,longitude,altitude,heading,speed} = position.coords;
